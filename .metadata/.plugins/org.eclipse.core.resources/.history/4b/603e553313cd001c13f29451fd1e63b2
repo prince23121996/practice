@@ -1,0 +1,9 @@
+package com.gd.prac1;
+import java.util.*;
+
+public class MyClass4 {
+	public static void main(String[] args) {
+		List<Employee> lst=new ArrayList<Employee>();
+		
+	}
+}

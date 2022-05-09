@@ -1,0 +1,17 @@
+package com.gd.day11;
+//write a lambda expression to print 1 to 10 
+interface MyPrint{
+	public void print(int s);
+}
+public class MyLamda2 {
+	public static void main(String[] args) {
+		MyPrint p=(int s) -> {
+			while(s<=10)
+			{
+				System.out.println(s++);
+			}
+		};
+		(1);
+	}
+
+}

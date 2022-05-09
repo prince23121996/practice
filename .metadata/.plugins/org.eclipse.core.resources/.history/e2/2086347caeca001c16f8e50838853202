@@ -1,0 +1,20 @@
+package gd.com.day101;
+
+import java.util.*;
+
+public class mySet {
+	public static void main(String[] args) {
+		Set<String> set=new HashSet<String>();
+		set.add("prince");
+		set.add("Navadit");
+		set.add("Alpesh");
+		set.add("Risabh");
+		set.add("Aryan");
+		set.add("Saini");
+		set.add("Priyanshi");
+		set.add("Shivendu");
+		set.add("null");
+		System.out.println(set);
+	}
+
+}

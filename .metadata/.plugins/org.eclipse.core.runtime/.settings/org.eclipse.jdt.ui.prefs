@@ -1,0 +1,10 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.Exception"><rhs name\="com.gd.day7.OnlyPositiveNumber"/><rhs name\="java.lang.ArithmeticException"/></lhs><lhs name\="java.lang.Throwable"><rhs name\="com.gd.day7.OnlyPositiveNumber"/><rhs name\="java.lang.ArithmeticException"/></lhs><lhs name\="com.gd.day7.OnlyPositiveNumber"><rhs name\="com.gd.day7.OnlyPositiveNumber"/></lhs><lhs name\="java.lang.RuntimeException"><rhs name\="java.lang.ArithmeticException"/></lhs><lhs name\="java.lang.ArithmeticException"><rhs name\="java.lang.ArithmeticException"/></lhs></history>
+content_assist_number_of_computers=12
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.formatterprofiles.version=22
+spelling_locale_initialized=true
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

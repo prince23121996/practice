@@ -1,0 +1,9 @@
+package com.gd.prac1;
+import java.util.*;
+
+public class MyClass6 {
+	public static void main(String[] args) {
+		Date d1=new Date();
+		System.out.println(d1);
+	}
+}

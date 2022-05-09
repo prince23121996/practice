@@ -1,0 +1,28 @@
+package com.gd.prac1;
+
+/*Create a Bank Account class to store the account information as follow : name , father name , Mother name ,
+ *  Account number , Account type and minimum balance .
+User should be able to add new account holder
+User should be able to modify the account information and update. 
+User should be able to delete any account using uniquid  and account number.
+
+While Add the new Account Holder make sure minimum balance of 
+500 is added otherwise throw MinimumBalanceLimitedException.
+
+If user does not have last name while adding the account throw Userdefined Exception LastNameRequired
+Application Should be Manu Based like
+*/
+
+public class MyAccount {
+	private String name;
+	private String fname;
+	private String mname;
+	private String atype;
+	private int mbalance;
+	
+	
+	
+	
+	
+	
+}

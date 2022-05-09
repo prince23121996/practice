@@ -1,0 +1,28 @@
+package com.gd.prac1;
+//Create A laptop array list and sort by name
+public class MyLaptop implements Comparable<MyLaptop>{
+	
+	
+	private int model;
+	private String name;
+	
+	public int getModel() {
+		return model;
+	}
+	public void setModel(int model) {
+		this.model = model;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public int compareTo(MyLaptop o) {
+		return this.getName().compareTo(name);
+	}
+	
+	
+
+}

@@ -1,0 +1,79 @@
+package com.gd.day11;
+
+//write a lambda expression to print 1 to 10 
+//write a lambda to sum of 1 to 10 number
+
+interface Mysub {
+	public void ss(int d, int e);
+}
+
+interface MyStr {
+	public void myss(String str);
+}
+
+interface MyMult {
+	public void mult(int x, int y);
+}
+
+interface MyPrint{
+	public void print(int s);
+}
+
+interface MySum{
+	public void sum(int s);
+}
+
+public class MyLamda1 {
+	public static void main(String[] args) {
+		//sub(10,5);
+		Mysub sub=(int d, int e) -> {
+			int f=d-e;
+			System.out.println("Sub is: "+f);
+		};
+		sub.ss(10,5);
+		
+		//String Length
+		String len="Hello_Jimmi";
+		
+		MyStr lenob = (str) -> {
+			System.out.println("Length of String is: "+str.length());
+			
+		};
+		lenob.myss(len);
+		
+		MyMult mul=(int x, int y)->{
+			int c=x*y;
+			System.out.println("Multiplication is :"+c);
+		};
+		mul.mult(5, 2);
+		
+		
+		//write a lambda expression to print 1 to 10 
+		MyPrint p=(int s) -> {
+//			while(s<=10)
+//			{
+//				System.out.println(s++);
+//			}
+			for(s=1;s<=10;s++)
+			{
+				System.out.println(s+"");
+			}
+		};
+		p.print(1);
+		
+		
+		//write a lambda to sum of 1 to 10 number
+		
+		MySum ss=(int s) -> {
+			int sss=0;
+			
+			for(s=1;s<=10;s++)
+			{
+				sss=sss+s;
+			}
+			System.out.println("Sum is: "+sss);
+		};
+		ss.sum(1);
+		
+	}
+}

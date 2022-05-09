@@ -1,0 +1,16 @@
+package com.gd.day10;
+
+
+
+public class MyClass22 {
+	@Override
+	public String toString() {
+		return "My name is alpesh";
+	}
+
+	public static void main(String[] args) {
+		MyClass22 my=new MyClass22();
+		System.out.println(my+"");
+		
+	}
+}
