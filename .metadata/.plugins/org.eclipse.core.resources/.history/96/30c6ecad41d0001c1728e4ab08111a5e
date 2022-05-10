@@ -1,0 +1,331 @@
+/*package com.gd.prac1;
+
+import java.util.*;
+
+class Bacount {
+	private int id;
+	private String name;
+	private String fname;
+	private String mname;
+	private String atype;
+	private int mbalance;
+
+	@Override
+	public String toString() {
+		return "Bacount [id=" + id + ", name=" + name + ", fname=" + fname + ", mname=" + mname + ", atype=" + atype
+				+ ", mbalance=" + mbalance + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getFname() {
+		return fname;
+	}
+
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+	public String getMname() {
+		return mname;
+	}
+
+	public void setMname(String mname) {
+		this.mname = mname;
+	}
+
+	public String getAtype() {
+		return atype;
+	}
+
+	public void setAtype(String atype) {
+		this.atype = atype;
+	}
+
+	public int getMbalance() {
+		return mbalance;
+	}
+
+	public void setMbalance(int mbalance) {
+		this.mbalance = mbalance;
+	}
+
+}
+
+public class MyClass6 {
+	public static void main(String[] args) {
+		Map<Integer, Bacount> mp=new HashMap<Integer, Bacount>();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter 1 for create an account");
+		int a=sc.nextInt();
+		if(a==1)
+		{
+			Bacount b1=new Bacount();
+			System.out.println("Please Enter the id");
+			int b=sc.nextInt();
+			System.out.println("Enter name:");
+			String c=sc.nextLine();
+			System.out.println();
+		}
+	}
+}
+*/
+
+
+
+
+package myproject;
+
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+
+public class BankAccount implements Comparable<BankAccount>{
+    private String name;
+    private String father_name;
+    private String mother_name;
+    private String accno;
+    private int bal =500;
+    private String type;
+    
+    public BankAccount(String name, String father_name, String mother_name, String accno, int bal, String type){
+        this.name = name;
+        this.father_name = father_name;
+        this.mother_name = mother_name;
+        this.accno = accno;
+        this.bal = bal;
+        this.type = type;
+    }
+    
+    public void setname(String name){
+        this.name = name;
+    }
+    
+    public String getname(){
+        return name;
+    }
+    
+    public void setfather_name(String father_name){
+        this.father_name = father_name;
+    }
+    
+    public String getfather_name(){
+        return father_name;
+    }
+    
+    public void setmother_name(String mother_name){
+        this.mother_name = mother_name;
+    }
+    
+    public String getmother_name(){
+        return mother_name;
+    }
+    
+    public void setacc(String accno){
+        this.accno = accno;
+    }
+    
+    public String getacc(){
+        return accno;
+    }
+    
+    public void setbal(int bal){
+        this.bal = bal;
+    }
+    
+    public int getbal(){
+        return bal;
+    }
+    
+    public void settype(String type){
+        this.type = type;
+    }
+    
+    public String gettype(){
+        return type;
+    }
+    
+    public String toString(){
+        return "Details [ Name = " + name + " Father's Name = " + father_name + " Mother's Name = " + mother_name + " Acc No = " + accno + " Balance = " + bal + " Type = " + type + " ]";
+    }
+    
+    public static void main(String args[]){
+        Map<String, BankAccount> map = new HashMap<String, BankAccount>();
+        int n = 1;
+        while(n != 0){
+            Scanner in = new Scanner(System.in);
+            int choice = 0;
+            
+            System.out.println("Press 1 For Add Account");
+            System.out.println("Press 2 For Delete Account");
+            System.out.println("Press 3 For Update Account");
+            System.out.println("Press 4 For To View Sorted List\n");
+            
+            System.out.println("Enter Choice \n");
+            choice = in.nextInt();
+        switch(choice){
+            case 1:
+                Scanner input = new Scanner(System.in);
+                
+                 Date date = new Date();
+                 Timestamp ts = new Timestamp(date.getTime());
+                 
+                 System.out.println("Enter Name : ");
+                 String name = "";
+                 name = input.nextLine();
+                 
+                 System.out.println("Enter Father's Name : ");
+                 String fname = "";
+                 fname = input.nextLine();
+                 
+                 System.out.println("Enter Mother's Name : ");
+                 String mname = "";
+                 mname = input.nextLine();
+                 
+                 System.out.println("Enter Bank name");
+                 String acc = "";
+                 acc = input.nextLine();
+                 
+                 System.out.println("Enter Account Type : ");
+                 String type = "";
+                 type = input.nextLine();
+                 
+                 System.out.println("Enter Amount : ");
+                 int amount = 500;
+                 amount = input.nextInt();
+                 
+                 
+                 Long val = ts.getTime();
+                 String accnoo = "IN"+acc+val;
+                 
+                 map.put(accnoo, new BankAccount(name, fname, mname, accnoo, amount, type));
+                 
+                 System.out.println("\nAccount Created\n");
+                 System.out.println(map.get(accnoo));
+                 break;
+                 
+            case 2:
+                Scanner ins = new Scanner(System.in);
+                System.out.println("Enter Account No");
+                String no = "";
+                no = ins.nextLine();
+                map.remove(no);
+                System.out.println("Account Remove\n");
+                break;
+                
+            case 3:
+                System.out.println("Press 1 for update name\n" + "Press 2 for update fathers name\n" + "Press 3 for update mothers name\n" + "Press 4 for update amount\n" + "Press 5 for update account type\n");
+                int c = 0;
+                Scanner inp = new Scanner(System.in);
+                c = inp.nextInt();
+                
+                switch(c){
+                    case 1:
+                        Scanner inss = new Scanner(System.in);
+                        System.out.println("Enter Updated Name : ");
+                        String upname = "";
+                        upname = inss.nextLine();
+                        System.out.println("Enter Account No : ");
+                        String acno = "";
+                        acno = inss.nextLine();
+                        
+                        map.replace(acno, new BankAccount(upname, map.get(acno).getfather_name(), map.get(acno).getmother_name(), map.get(acno).getacc(), map.get(acno).getbal(), map.get(acno).gettype()));
+                        System.out.println("Account Updated \n");
+                        break;
+                        
+                    
+                    case 2:
+                        Scanner inf = new Scanner(System.in);
+                        System.out.println("Enter Updated Father's Name : ");
+                        String upfname = "";
+                        upfname = inf.nextLine();
+                        System.out.println("Enter Account No : ");
+                        String acnof = "";
+                        acnof = inf.nextLine();
+                        
+                        map.replace(acnof, new BankAccount(map.get(acnof).getname(), upfname, map.get(acnof).getmother_name(), map.get(acnof).getacc(), map.get(acnof).getbal(), map.get(acnof).gettype()));
+                        System.out.println("Account Updated \n");  
+                        break;
+                    
+                    case 3:
+                        Scanner inm = new Scanner(System.in);
+                        System.out.println("Enter Updated Mother's Name : ");
+                        String upmname = "";
+                        upmname = inm.nextLine();
+                        System.out.println("Enter Account No : ");
+                        String acnom = "";
+                        acnom = inm.nextLine();
+                        
+                        map.replace(acnom, new BankAccount(map.get(acnom).getname(), map.get(acnom).getfather_name(), upmname, map.get(acnom).getacc(), map.get(acnom).getbal(), map.get(acnom).gettype()));
+                        System.out.println("Account Updated \n");   
+                        break;
+                      
+                    case 4:
+                        Scanner ina = new Scanner(System.in);
+                        System.out.println("Enter Account No : ");
+                        String acnoa = "";
+                        acnoa = ina.nextLine();
+                        
+                        System.out.println("Enter Updated Amount : ");
+                        int amt = 0;
+                        amt = ina.nextInt();
+                        
+                        map.replace(acnoa, new BankAccount(map.get(acnoa).getname(), map.get(acnoa).getfather_name(), map.get(acnoa).getmother_name(), map.get(acnoa).getacc(), amt, map.get(acnoa).gettype()));
+                        System.out.println("Account Updated \n");   
+                        break;    
+                        
+                    case 5:
+                        Scanner inty = new Scanner(System.in);
+                        System.out.println("Enter Account No : ");
+                        String acnoty = "";
+                        acnoty = inty.nextLine();
+                        
+                        System.out.println("Enter Updated Account Type : ");
+                        String ty = "";
+                        ty = inty.nextLine();
+                        
+                        map.replace(acnoty, new BankAccount(map.get(acnoty).getname(), map.get(acnoty).getfather_name(), map.get(acnoty).getmother_name(), map.get(acnoty).getacc(), map.get(acnoty).getbal(), ty));
+                        System.out.println("Account Updated \n");   
+                        break;       
+                }
+                break;
+            case 4 :
+                System.out.println("\nPrinting accounts after sorting data\n");
+                List<String> list = new ArrayList<>(map.keySet());
+                Collections.sort(list);
+                for(String i : list){
+                    System.out.println("Key = " + i);
+                    System.out.println("Value = " + map.get(i) + "\n");
+                }
+               break; 
+        }
+        System.out.println("\nPress any number to continue & Press 0 to exit");
+        n = in.nextInt();
+    }
+    }
+
+    @Override
+    public int compareTo(BankAccount t) {
+        return this.getacc().compareTo(t.getacc());
+    }
+}

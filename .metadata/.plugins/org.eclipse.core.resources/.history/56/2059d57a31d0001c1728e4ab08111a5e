@@ -1,0 +1,130 @@
+package com.gd.prac1;
+import java.util.*;
+class BankAcount implements Comparable<BankAcount>{
+	private String your_name;
+	private String father_name;
+	private String mother_name;
+	private String account_type;
+	private String account_number;
+	
+	
+	
+	public BankAcount(String your_name, String father_name, String mother_name, String account_type,
+			String account_number) {
+		this.your_name = your_name;
+		this.father_name = father_name;
+		this.mother_name = mother_name;
+		this.account_type = account_type;
+		this.account_number = account_number;
+	}
+	@Override
+	public String toString() {
+		return "BankAcount [your_name=" + your_name + ", father_name=" + father_name + ", mother_name=" + mother_name
+				+ ", account_type=" + account_type + ", account_number=" + account_number + "]";
+	}
+	public String getYour_name() {
+		return your_name;
+	}
+	public void setYour_name(String your_name) {
+		this.your_name = your_name;
+	}
+	public String getFather_name() {
+		return father_name;
+	}
+	public void setFather_name(String father_name) {
+		this.father_name = father_name;
+	}
+	public String getMother_name() {
+		return mother_name;
+	}
+	public void setMother_name(String mother_name) {
+		this.mother_name = mother_name;
+	}
+	public String getAccount_type() {
+		return account_type;
+	}
+	public void setAccount_type(String account_type) {
+		this.account_type = account_type;
+	}
+	public String getAccount_number() {
+		return account_number;
+	}
+	public void setAccount_number(String account_number) {
+		this.account_number = account_number;
+	}
+	@Override
+	public int compareTo(BankAcount o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}
+
+
+public class MyCLass7 {
+	public static void main(String[] args) {
+		Map<String, BankAcount> map=new HashMap<String, BankAcount>();
+		BankAcount ba=new BankAcount(null, null, null, null, null);
+		Scanner sc=new Scanner(System.in);
+		int n=1;
+		if(n==1) {
+			System.out.println("Press 1 for add acount");
+			System.out.println("Press 2 for delete acount");
+			System.out.println("Press 3 for update acount");
+			System.out.println("Press 4 for sorted the account list");
+			int n1=sc.nextInt();
+			switch(n1) {
+			case 1:
+				System.out.println("Enter your name:");
+				String s1=sc.nextLine();
+				System.out.println("Enter your father name:");
+				String s2=sc.nextLine();
+				System.out.println("Enter Your Mother name:");
+				String s3=sc.nextLine();
+				System.out.println("Enter Account type:");
+				String s4=sc.nextLine();
+				
+				Date d2=new Date();
+				String acc1="IN"+"HDFC"+d2.getTime();
+				
+				ba.setYour_name(s1);
+				ba.setFather_name(s2);
+				ba.setMother_name(s3);
+				ba.setAccount_type(s4);
+				ba.setAccount_number(acc1);
+				
+				map.put(acc1, ba);
+				System.out.println("Your account has been created");
+				System.out.println(map.get(acc1));
+				System.out.println("Your account number is: "+acc1);
+				
+				break;
+				
+			case 2:
+				System.out.println("Please enter your account number:");
+				String s5=sc.nextLine();
+				System.out.println("Your account has been Removed");
+				break;
+				
+			case 3:
+				System.out.println("What you want to update");
+				System.out.println("Press 1 for update your name");
+				System.out.println("Press 2 for update father name");
+				System.out.println("Press 3 for update mother name");
+				
+				int i2=sc.nextInt();
+				
+				switch(i2) {
+				case 1:
+					System.out.println("Please Enter your updated name:");
+					String s6=sc.nextLine();
+					System.out.println("Please enter your account number:");
+					String s7=sc.nextLine();
+					map.replace(s7, new BankAcount(s6, map.get(s7).getFather_name(), map.get(s7).getMother_name(), map.get(s7).getAccount_type(), map.get(s7).getAccount_number()));
+					break;
+				}
+				
+			}
+		}
+	}
+}

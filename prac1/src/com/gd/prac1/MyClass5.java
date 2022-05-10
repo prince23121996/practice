@@ -35,37 +35,118 @@ java.sql.date
 import java.util.*;
 
 public class MyClass5 {
-
-	public static void main(String[] args) throws Exception {
-
-		Scanner sc = new Scanner(System.in);
-
-		List<BAccount> ba = new ArrayList<BAccount>();
-
+	public static void main(String[] args) {
+		Map<String, BAccount> mp = new HashMap<String, BAccount>();
 		BAccount b1 = new BAccount();
-		System.out.println("Enter your name:");
-		b1.setName(sc.nextLine());
-		System.out.println("Enter your Father name:");
-		b1.setFname(sc.nextLine());
-		System.out.println("Enter your Mother name:");
-		b1.setMname(sc.nextLine());
-		System.out.println("Enter Account Type:");
-		b1.setAtype(sc.nextLine());
-		System.out.println("Minimum balance should be 500");
-		int amnt = sc.nextInt();
-		if (amnt >= 500) {
-			b1.setMbalance(amnt);
-		} else // throw new Exception("sorry device error");
-		{
-			System.out.println("Amount should be >=500 Please re-enter the amount");
-			amnt = sc.nextInt();
-		}
+		int i = 1;
 		
-		Date d1=new Date();
-		System.out.println(d1);
+		while(i != 0) {
+			int choose = 0;
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter 1 for add account");
+			System.out.println("Enter 2 for delete account");
+			System.out.println("Enter 3 for Update account");
 
-		ba.add(b1);
-		System.out.println(b1);
+			choose = sc.nextInt();
+			switch (choose) {
 
+			case 1:
+				Scanner sc2 = new Scanner(System.in);
+				System.out.println("Enter bank name:");
+				String acoo = sc2.nextLine();
+				System.out.println("Please Enter Your Name:");
+				String name = sc2.nextLine();
+				System.out.println("Please Enter Your Father Name:");
+				String fname = sc2.nextLine();
+				System.out.println("Please Enter Your Mother Name:");
+				String mname = sc2.nextLine();
+				System.out.println("Please Enter your account type:");
+				String atype = sc2.nextLine();
+				System.out.println("Please Enter Amount:");
+				int amnt = 500;
+				amnt = sc2.nextInt();
+
+				Date d1 = new Date();
+				Long acc = d1.getTime();
+				String acc_no = "IN" + "HDFC" + acc;
+
+				b1.setAco(acoo);
+				b1.setName(name);
+				b1.setFname(fname);
+				b1.setMname(mname);
+				b1.setAtype(atype);
+				b1.setMbalance(amnt);
+
+				mp.put(acc_no, b1);
+
+				System.out.println("Account has been created");
+				System.out.println(acc_no);
+				System.out.println(mp.get(acc_no));
+				break;
+			case 2:
+				Scanner sc3 = new Scanner(System.in);
+				System.out.println("Please enter account number to delete:");
+				Long acc2 = sc3.nextLong();
+				mp.remove(acc2);
+				System.out.println("Your account has been removed");
+				break;
+			case 3:
+				System.out.println("Press 1 for update name" + "Press 2 for update fathers name"
+						+ "Press 3 for update mothers name");
+				Scanner sc4 = new Scanner(System.in);
+				int p = sc4.nextInt();
+				
+				switch (p) {
+
+				case 1:
+					System.out.println("Please Enter the updated name:");
+					Scanner sc5 = new Scanner(System.in);
+					String un = sc5.nextLine();
+
+					System.out.println("Enter account number:");
+					String accn = sc5.nextLine();
+					b1.setName(un);
+					mp.replace(accn, b1);
+					System.out.println("Name has been changed");
+					break;
+
+				case 2:
+					System.out.println("Please Enter father name:");
+					Scanner sc6 = new Scanner(System.in);
+					String un1 = sc6.nextLine();
+
+					System.out.println("Enter account number:");
+					String accn1 = sc6.nextLine();
+					b1.setName(un1);
+					mp.replace(accn1, b1);
+					System.out.println("father Name has been changed");
+					break;
+					
+				case 3:
+					System.out.println("Please Enter Mother name:");
+					Scanner sc7 = new Scanner(System.in);
+					String un2 = sc7.nextLine();
+
+					System.out.println("Enter account number:");
+					String accn2 = sc7.nextLine();
+					b1.setName(un2);
+					mp.replace(accn2, b1);
+					System.out.println("Mother Name has been changed");
+					break;
+					
+					default :
+						System.out.println("Please enter the right key");
+
+				}
+
+			default:
+				System.out.println("Please enter correct number");
+
+			}
+			System.out.println("Press 0 for exit");
+			System.out.println("Press any key for continue:");
+			Scanner sc8=new Scanner(System.in);
+			i=sc8.nextInt();
+		}
 	}
 }
